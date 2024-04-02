@@ -1,0 +1,142 @@
+<style>
+  h1 {
+            color:  white;
+            text-align: center;
+        }
+</style>
+ 
+
+<center>
+  <h1>pay here for get the key ↓</h1>
+   <a href="pay.html" class="button">PAY KEY</a>
+</center>
+
+<html>
+<head>
+<style>
+body {
+  /* Gunakan gambar bergerak yang Anda inginkan sebagai latar belakang */
+  background-image: url("skull.jpg");
+  /* Atur ukuran gambar agar sesuai dengan layar */
+  background-size: cover;
+  /* Atur posisi gambar agar tetap di tengah */
+  background-position: center;
+  /* Atur pengulangan gambar agar tidak ada celah */
+  background-repeat: no-repeat;
+}
+</style>
+</head>
+<body>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Window</title>
+    <style>
+        /* Gaya untuk jendela mengambang */
+        .floating-window {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+        }
+
+        /* Gaya untuk tombol tutup */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        /* Efek glitch */
+        .glitch-effect {
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            25% {
+                transform: translate(-2px, 2px);
+            }
+            50% {
+                transform: translate(2px, -2px);
+            }
+            75% {
+                transform: translate(-2px, 2px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Jendela mengambang -->
+    <div class="floating-window">
+        <span class="close-button" onclick="alert('skull.exe: failed to close the window (code:xE666)')">X</span>
+        <p>Your data has been encrypted. Type the password to unlock your data before time runs out!</p>
+        <input type="text" id="passphrase" placeholder="Enter passphrase">
+        <button id="closeButton" onclick="checkPassphrase()">decrypted</button>
+        <p id="countdown"></p>
+    </div>
+
+    <script>
+        let attempts = 3; // Jumlah kesempatan
+
+        // Fungsi untuk menutup jendela mengambang
+        function closeWindow() {
+            document.querySelector('.floating-window').style.display = 'none';
+        }
+
+        // Fungsi untuk memeriksa kata kunci dan menutup jendela
+        function checkPassphrase() {
+            const passphrase = document.getElementById('passphrase').value;
+            if (passphrase === 'tuhan ku Allah') {
+                document.getElementById('closeButton').disabled = true;
+                document.getElementById('countdown').textContent = 'Key is correct';
+            } else {
+                attempts--;
+                if (attempts === 0) {
+                    document.getElementById('closeButton').disabled = true;
+                    document.getElementById('countdown').textContent = 'Out of attempts!';
+                } else {
+                    alert(`Incorrect passphrase. ${attempts} attempts remaining.`);
+                }
+            }
+        }
+
+        // Hitung mundur 2 menit
+        const countdownElement = document.getElementById('countdown');
+        let timeLeft = 120; // 2 menit dalam detik
+
+        function updateCountdown() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            countdownElement.textContent = `Time left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timeLeft--;
+
+            if (timeLeft < 0) {
+                document.getElementById('closeButton').disabled = true;
+                countdownElement.textContent = 'Time is up!';
+            } else {
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        updateCountdown();
+    </script>
+</body>
+</html>
+pink

